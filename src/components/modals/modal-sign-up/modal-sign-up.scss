@@ -1,0 +1,44 @@
+.sign-up-checkbox{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &+p{
+        display: inline-flex;
+        font-size: 14px;
+        line-height: 22px;
+        padding-top: 8px;
+        border-top: 1px solid #E8E8E8;
+        &::before{
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #9ABBCE;
+            border-radius: 0.25em;
+            margin-right: 0.5em;
+            margin-top: 0.25em;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        &:hover::before{
+            border-color: #2196F3;
+        }
+        &:active::before{
+            background-color: #b3d7ff;
+            border-color: #b3d7ff;
+        }
+    }
+    &:checked+p::before{
+        border-color: #0b76ef;
+        background-image: url("./check.svg");
+    }
+    &:hover+p{
+        background-color: #F1FCFF;
+    }
+    &-error+p{
+        &::before{
+            border-color: rgb(243, 69, 69);
+        }
+    }
+}

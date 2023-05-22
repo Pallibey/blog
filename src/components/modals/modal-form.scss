@@ -1,0 +1,96 @@
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    width: 370px;
+    background-color: white;
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 22px 106px rgba(0, 0, 0, 0.07), 0px 9.19107px 44.2843px rgba(0, 0, 0, 0.0503198), 0px 4.91399px 23.6765px rgba(0, 0, 0, 0.0417275), 0px 2.75474px 13.2728px rgba(0, 0, 0, 0.035), 0px 1.46302px 7.04911px rgba(0, 0, 0, 0.0282725), 0px 0.608796px 2.93329px rgba(0, 0, 0, 0.0196802);
+    border-radius: 6px;
+    padding: 48px 33px;
+    font-size: 14px;
+
+    &-wrapper{
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+
+    &-submit-wrapper{
+        margin-bottom: 0;
+    }
+
+    &-title{
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 500;
+        color: #262626;
+    }
+
+    &-about-text{
+        margin-bottom: 5px;
+    }
+
+    &-input{
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 35px;
+        border: 1px solid #D9D9D9;
+        border-radius: 5px;
+        padding-left: 10px;
+        &::placeholder{
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 200;
+            font-size: 14px;
+            color: #bdbdbd;
+        }
+        &:hover{
+            border-color: #4096ff;
+        }
+        &:focus{
+            border-color: #4096ff;
+            outline: none;
+        }
+
+        &-error{
+            border-color: #F5222D;;
+        }
+    }
+
+    &-textarea{
+        resize: none;
+        padding: 4px 10px;
+    }
+
+    &-text-error{
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 22px;
+        color: #F5222D;
+        padding-left: 2px;
+    }
+
+    &-btn{
+        width: 100%;
+        height: 40px;
+        border: none;
+        background: #1890FF;
+        border-radius: 4px;
+        color: white;
+        font-size: 16px;
+        line-height: 24px;
+        &:hover{
+            background: #1e7dd6;
+            cursor: pointer;
+        }
+        &:active{
+            background: #1f68ac;
+        }
+        &:disabled{
+            cursor: default;
+            opacity: 0.8;
+        }
+    }
+  }

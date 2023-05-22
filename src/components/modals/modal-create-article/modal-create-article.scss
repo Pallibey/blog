@@ -1,0 +1,51 @@
+.create-post{
+    &-form{
+      width: 80vw;
+      max-width: 930px;  
+    }
+    &-tags-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    &-tags-warning{
+        font-size: 9px;
+    }
+    &-tag-wrapper{
+        display: flex;
+        gap: 18px;
+        margin-bottom: 5px;
+    }
+    &-tag-input{
+        width: 300px;
+    }
+    &-add-tag-btn{
+        font-family: 'Inter', sans-serif;
+        background-color: transparent;
+        padding: 5px 20px;
+        border: 1px solid #1890FF;
+        border-radius: 4px;
+        color: #1890FF;
+        &:hover{
+            cursor: pointer;
+            border-color: #1477d4;
+            box-shadow: 0px 0px 5px #3289db;
+        }
+    }
+    &-delete-tag-btn{
+        font-family: 'Inter', sans-serif;
+        background-color: transparent;
+        padding: 5px 20px;
+        border: 1px solid #F5222D;
+        border-radius: 4px;
+        color: #F5222D;
+        &:hover{
+            cursor: pointer;
+            border-color: #d32b34;
+            box-shadow: 0px 0px 5px #F5222D;
+            font-weight: 500;
+        }
+    }
+    &-submit-wrapper{
+        width: 320px;
+    }
+}

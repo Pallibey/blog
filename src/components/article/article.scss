@@ -1,0 +1,165 @@
+.article {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 5px;
+  max-width: 940px;
+  width: 75vw;
+  padding: 15px 16px;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
+
+  &-header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-item {
+    margin-bottom: 20px;
+    padding: 0 20px;
+    list-style-type: none;
+  }
+  
+  &-wrapper-user {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+  &-wrapper-title {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 7px;
+  }
+
+  &-link {
+    margin-right: 15px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 380px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-likes {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    height: 16px;
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+
+  &-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  
+  &-tag {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    height: 20px;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:hover{
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+
+  &-show-tags-btn{
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    align-self: flex-end;
+    padding: 0;
+    &:hover{
+      cursor: pointer;
+      color: #8ba7c2;
+      opacity: 0.8;
+    }
+  }
+    
+  &-decription {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    color: #000000BF;
+  }
+  
+  &-text {
+    min-height: 300px;
+  }
+
+  &-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10px;
+  }
+
+  .username {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .date {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  &-avatar-wrapper{
+    border-radius: 50%;
+    min-width: 46px;
+  }
+
+  &-btn{
+    font-family: 'Inter', sans-serif;
+    background-color: transparent;
+    padding: 5px 15px;
+    margin-right: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    &:hover{
+      cursor: pointer;
+    }
+    &-delete{
+      border-color: #F5222D;
+      color: #F5222D;
+      &:hover{
+        border-color: #d32b34;
+        box-shadow: 0px 0px 5px #F5222D;
+      }
+    }
+    &-edit{
+      font-size: 14px;
+      border-color: #52C41A;
+      color: #52C41A;
+      &:hover{
+        border-color: #429b15;
+        box-shadow: 0px 0px 5px #52C41A;
+      }
+    }
+  }
+}
