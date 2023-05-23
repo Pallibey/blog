@@ -9,9 +9,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { deleteArticle, deleteLike, postAddLike } from '../../service/articles-service'
 import { setIsArticleChangeFalse } from '../../redux/service-slice'
-
-import redHeart from './red-heart.svg'
-import heart from './heart.svg'
+import redHeart from '../../assets/red-heart.svg'
+import heart from '../../assets/heart.svg'
 
 import './article.scss'
 

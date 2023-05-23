@@ -62,7 +62,6 @@ export const postAddLike = (slug, token) => async (dispatch) => {
     if (!res.ok) {
       throw new Error()
     }
-    dispatch(setIsArticleChangeTrue())
   } catch (err) {
     dispatch(loadFail())
   }
@@ -80,7 +79,6 @@ export const deleteLike = (slug, token) => async (dispatch) => {
     if (!res.ok) {
       throw new Error()
     }
-    dispatch(setIsArticleChangeTrue())
   } catch (err) {
     dispatch(loadFail())
   }
@@ -143,7 +141,7 @@ export const deleteArticle = (slug, token) => async (dispatch) => {
   }
 }
 
-export const putUpdateArticle = (title, description, text, oldArticleInfo, slug, token) => async (dispatch) => {
+export const putUpdateArticle = (title, description, text, tags, oldArticleInfo, slug, token) => async (dispatch) => {
   try {
     dispatch(loading())
     const link = new URL(`/api/articles/${slug}`, baseURL)
@@ -156,6 +154,23 @@ export const putUpdateArticle = (title, description, text, oldArticleInfo, slug,
     }
     if (text !== oldArticleInfo.body) {
       articleInfo.article = { ...articleInfo.article, body: text }
+    }
+    const tagList = []
+    if (tags.length === oldArticleInfo.tagList.length) {
+      tags.forEach((tag) => {
+        if (!oldArticleInfo.tagList.includes(tag.value) && tag.value !== '') {
+          tagList.push(tag.value)
+        }
+      })
+    } else {
+      tags.forEach((tag) => {
+        if (tag.value !== '') {
+          tagList.push(tag.value)
+        }
+      })
+    }
+    if (tagList.length !== 0) {
+      articleInfo.article = { ...articleInfo.article, tagList }
     }
     if (Object.keys(articleInfo.article).length === 0) {
       dispatch(loadInvalidData({ errors: { info: 'nothing changes' } }))

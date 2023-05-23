@@ -35,7 +35,7 @@ export const ModalEditArticle = () => {
       tags,
     },
   })
-  const { fields } = useFieldArray({
+  const { fields, remove, append } = useFieldArray({
     control,
     name: 'tags',
   })
@@ -56,6 +56,7 @@ export const ModalEditArticle = () => {
       setError('title', formError)
       setError('description', formError)
       setError('textField', formError)
+      dispatch(clearInvalidData())
     }
   }, [service.isInvalidData, setError])
 
@@ -74,7 +75,15 @@ export const ModalEditArticle = () => {
 
   const onSubmit = (data) => {
     dispatch(
-      putUpdateArticle(data.title, data.description, data.textField, service.oneArticle, slug, service.user.token)
+      putUpdateArticle(
+        data.title,
+        data.description,
+        data.textField,
+        data.tags,
+        service.oneArticle,
+        slug,
+        service.user.token
+      )
     )
   }
 
@@ -133,11 +142,32 @@ export const ModalEditArticle = () => {
           {fields.map((tag, i) => (
             <div key={tag.id} className="create-post-tag-wrapper">
               <input
-                className="modal-form-input create-post-tag-input"
+                className={`modal-form-input create-post-tag-input ${
+                  errors?.textField && errors.title.type === 'server' && 'modal-form-input-error'
+                }`}
                 placeholder="Tag"
                 {...register(`tags.${i}.value`)}
-                disabled
               />
+              {fields.length !== 1 && (
+                <button
+                  className="create-post-delete-tag-btn"
+                  onClick={() => {
+                    remove(i)
+                  }}
+                >
+                  Delete
+                </button>
+              )}
+              {i === fields.length - 1 && (
+                <button
+                  className="create-post-add-tag-btn"
+                  onClick={() => {
+                    append({ value: '' })
+                  }}
+                >
+                  Add tag
+                </button>
+              )}
             </div>
           ))}
         </div>

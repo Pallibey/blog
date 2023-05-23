@@ -31,7 +31,7 @@
     }
     &:checked+p::before{
         border-color: #0b76ef;
-        background-image: url("./check.svg");
+        background-image: url('../../../assets/check.svg');
     }
     &:hover+p{
         background-color: #F1FCFF;

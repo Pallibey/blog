@@ -1,7 +1,8 @@
 import React from 'react'
 
+import img from '../../assets/error.svg'
+
 import classes from './error-msg.module.scss'
-import img from './error.svg'
 
 const ErrorMsg = () => {
   return (

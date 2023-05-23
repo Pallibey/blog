@@ -44,6 +44,57 @@ const App = () => {
     }
   }, [service.isLogOut, service.user, dispatch])
 
+  const routes = [
+    {
+      element: <Articles />,
+      path: '/',
+    },
+    {
+      element: <Articles />,
+      path: '/articles',
+    },
+    {
+      element: <Articles />,
+      path: '/articles/:slug',
+    },
+    {
+      element: (
+        <ProtectedRoute user={service.user}>
+          <ModalEditArticle />
+        </ProtectedRoute>
+      ),
+      path: '/articles/:slug/edit',
+    },
+    {
+      element: <ModalSignIn />,
+      path: '/sign-in',
+    },
+    {
+      element: <ModalSignUp />,
+      path: '/sign-up',
+    },
+    {
+      element: (
+        <ProtectedRoute user={service.user}>
+          <ModalEditProfile />
+        </ProtectedRoute>
+      ),
+      path: '/profile',
+    },
+    {
+      element: (
+        <ProtectedRoute user={service.user}>
+          <ModalCreateArticle />
+        </ProtectedRoute>
+      ),
+      path: '/new-article',
+    },
+    {
+      element: <Navigate to="/" replace />,
+      path: '*',
+    },
+  ]
+
   return (
     <>
       <Header />
@@ -62,36 +113,9 @@ const App = () => {
           />
         )}
         <Routes>
-          <Route path="/" element={<Articles />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/articles/:slug" element={<Articles />} />
-          <Route
-            path="/articles/:slug/edit"
-            element={
-              <ProtectedRoute user={service.user}>
-                <ModalEditArticle />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/sign-in" element={<ModalSignIn />} />
-          <Route path="/sign-up" element={<ModalSignUp />} />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute user={service.user}>
-                <ModalEditProfile />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/new-article"
-            element={
-              <ProtectedRoute user={service.user}>
-                <ModalCreateArticle />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {routes.map((routData, i) => {
+            return <Route key={i} path={routData.path} element={routData.element} />
+          })}
         </Routes>
       </main>
     </>
